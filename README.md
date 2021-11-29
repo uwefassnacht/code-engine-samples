@@ -32,7 +32,7 @@ Before deploying your code or container to Code Engine, we need to prep by insta
 
 ## Deploying an Application from its Source Code
 
-[Here](https://github.com/uwefassnacht/code-engine-samples/deploy-app-from-source/how-to-deploy-from-source.md) is the sequence of steps to deploy your application from its source code
+[Here](https://github.com/uwefassnacht/code-engine-samples/blob/main/deploy-app-from-source/how-to-deploy-from-source.md) is the sequence of steps to deploy your application from its source code
 
 ## Deploying an Application that is already containerized
 
