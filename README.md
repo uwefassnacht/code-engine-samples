@@ -26,7 +26,9 @@ Before deploying your code or container to Code Engine, we need to prep by insta
 
     ```bash
     ibmcloud cr region-set global
+    ```
 
+    ```bash
     ibmcloud cr namespace-add <mynamespace>
     ```
 
