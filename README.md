@@ -8,7 +8,7 @@ Before deploying your code or container to Code Engine, we need to prep by insta
 
 1. If you don't already have an IBM Cloud account, you need to [register and create one](https://cloud.ibm.com/registration).
 
-2. Next, install the IBM Cloud CLI, allows you to execute commands against the IBM Cloud from your command line (instead of using the GUI). The instructions are [here](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli).
+2. Next, install the IBM Cloud CLI, which allows you to execute commands against the IBM Cloud from your command line (instead of using the GUI). The instructions are [here](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli).
 
 3. While you're at it, you also need to install two plug-ins for the IBM Cloud CLI. The first one allows you to interact with Code Engine, the second one will give you the ability to work with the IBM Cloud Container Registry
 
@@ -22,11 +22,13 @@ Before deploying your code or container to Code Engine, we need to prep by insta
     ibmcloud login
     ```
 
-5. Once you're logged in, create a namespace (a place to hold your container images) in the container registry. Replace `<mynamespace>` with a memorable name. I like to use a concatination of my first and last name.
+5. Once you're logged in, set your registry region to "global" (making your image visible from all regions world-wide.
 
     ```bash
     ibmcloud cr region-set global
     ```
+
+6. Then create a namespace (a place to hold your container images) in the container registry. Replace `<mynamespace>` with a memorable name. I like to use a concatination of my first and last name.
 
     ```bash
     ibmcloud cr namespace-add <mynamespace>
@@ -34,8 +36,8 @@ Before deploying your code or container to Code Engine, we need to prep by insta
 
 ## Deploying an Application from its Source Code
 
-[Here](https://github.com/uwefassnacht/code-engine-samples/blob/main/deploy-app-from-source/how-to-deploy-from-source.md) is the sequence of steps to deploy your application from its source code
+[Here](https://github.com/uwefassnacht/code-engine-samples/blob/main/deploy-app-from-source/how-to-deploy-from-source.md) is the sequence of steps to deploy your application from its source code.
 
 ## Deploying an Application that is already containerized
 
-TODO: Point to tutorial here
+TODO: Point to "from container image" tutorial here

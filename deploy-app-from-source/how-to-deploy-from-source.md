@@ -1,4 +1,4 @@
-## Steps to deploy the app.js application from source
+# Steps to deploy the app.js application from source
 
 1. Make sure you've completed all the [pre-requisite steps](https://github.com/uwefassnacht/code-engine-samples/blob/main/README.md#pre-requisite-steps) that are necessary for any deployment to IBM Cloud Code Engine
 
@@ -8,7 +8,7 @@ First we'll create a Code Engine project (and name it "hello-world-project")
 
 ibmcloud ce project create --name hello-world-project
 
-Create a secret, which we will use in the next step to acces the IBM Container Registry. See [the docs](https://cloud.ibm.com/docs/codeengine?topic=codeengine-add-registry) for more details. The actual secret will be saved in a file called "key_file". 
+Create a secret, which we will use in the next step to acces the IBM Container Registry. See [the docs](https://cloud.ibm.com/docs/codeengine?topic=codeengine-add-registry) for more details. The actual secret will be saved in a file called "key_file".
 
 ibmcloud iam api-key-create cliapikey -d "My CLI APIkey" --file key_file
 
@@ -20,7 +20,7 @@ Next we configure the build process. More details and options are [here](https:/
 
 Make sure to replace <mynamespace> in the following command with the name of the namespace that you created in the prerequisit steps.
 
-ibmcloud ce build create --name helloworld-build --image icr.io/<mynamespace>/codeengine-helloworld --registry-secret myregistry --source https://github.com/uwefassnacht/code-engine-samples --context-dir deploy-app-from-source/hello-world-app --strategy buildpacks
+ibmcloud ce build create --name helloworld-build --image icr.io/<mynamespace>/codeengine-helloworld --registry-secret myregistry --source <https://github.com/uwefassnacht/code-engine-samples> --context-dir deploy-app-from-source/hello-world-app --strategy buildpacks
 
 Now we've got all the pieces in place to submit the actual build run (which will combine the source code with a buildpack, create the image and then store it in our container registry)
 
