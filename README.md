@@ -36,8 +36,12 @@ Before deploying your code or container to Code Engine, we need to prep by insta
 
 ## Deploying an Application from its Source Code
 
+If you don't have your source code containerized yet, Code Engine will do it for you.
+
 [Here](https://github.com/uwefassnacht/code-engine-samples/blob/main/deploy-app-from-source/how-to-deploy-from-source.md) is the sequence of steps to deploy your application from its source code.
 
 ## Deploying an Application that is already containerized
 
-TODO: Point to "from container image" tutorial here
+If you already have a containerized application, you can deploy the container directly to Code Engine. 
+
+[Here](https://github.com/uwefassnacht/code-engine-samples/blob/main/deploy-app-from-container/how-to-deploy-container.md) is the sequence of steps to do it.
