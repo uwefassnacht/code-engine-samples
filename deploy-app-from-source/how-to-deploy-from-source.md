@@ -2,21 +2,9 @@
 
 1. Make sure you've completed all the [pre-requisite steps](https://github.com/uwefassnacht/code-engine-samples/blob/main/README.md#pre-requisite-steps) that are necessary for any deployment to IBM Cloud Code Engine
 
-2. [Log in to the IBM Cloud](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login)
+2. If you are not already, [log in to the IBM Cloud](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login)
 
-First we'll create a Code Engine project (and name it "hello-world-project")
-
-ibmcloud ce project create --name hello-world-project
-
-Create a secret, which we will use in the next step to acces the IBM Container Registry. See [the docs](https://cloud.ibm.com/docs/codeengine?topic=codeengine-add-registry) for more details. The actual secret will be saved in a file called "key_file".
-
-ibmcloud iam api-key-create cliapikey -d "My CLI APIkey" --file key_file
-
-Now we'll create the registry (named "myregistry") using the IBM Container Registry service. Make sure to replace "API_KEY" with the actual key that you received during hte previous step.
-
-ibmcloud ce registry create --name myregistry --server icr.io --username iamapikey --password API_KEY
-
-Next we configure the build process. More details and options are [here](https://cloud.ibm.com/docs/codeengine?topic=codeengine-build-image#build-create-cli).
+3. Configure the build process. More details and options are [here](https://cloud.ibm.com/docs/codeengine?topic=codeengine-build-image#build-create-cli).
 
 Make sure to replace <mynamespace> in the following command with the name of the namespace that you created in the prerequisit steps.
 
@@ -29,3 +17,15 @@ ibmcloud ce buildrun submit --build helloworld-build
 At this point we have packaged the source code in a container image and stored it in the IBM Cloud Container Registry. We are now ready to deploy the container to Code Engine (make sure to replace <sha> with the has of the container image that was created in the previous step)
 
 ibmcloud ce application create --name hello-world --image --image icr.io/<mynamespace>/codeengine-helloworld --registry-secret myregistry
+
+Add instructions how to test your app via it's URL or CURL.
+
+And you're done! Congratulations, your source-code has been containerized, stored in IBM's container registry and succesfully deployed to IBM Cloud Engine.
+
+## Cleaning Up
+
+Once you're done, you might want to clean up everything you've created. Here are the steps:
+
+1. Remove the Code Engine project you created. This will automatically delete the running application you created
+
+TODO: the project and key creation should probably go into the pre-requisite steps. They are needed for both deployment from source and image.
