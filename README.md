@@ -22,7 +22,7 @@ Before deploying your code or container to Code Engine, you need to prep by inst
     ibmcloud login
     ```
 
-5. Once you're logged in, set your registry region to "global" (making your image visible from all regions world-wide.
+5. Once you're logged in, set your registry region to "global" (making your image visible from all regions world-wide).
 
     ```bash
     ibmcloud cr region-set global
@@ -34,19 +34,26 @@ Before deploying your code or container to Code Engine, you need to prep by inst
     ibmcloud cr namespace-add <mynamespace>
     ```
 
-TODO: More details here and fix formatting
+7. Now that you have a place to store your containers, let's turn to Code Engine and create a "place to run" your code. This is called a "project", and here is how you create it (using the Code Engine CLI):
 
-Next we'll create a Code Engine project (and name it "hello-world-project")
+    ```bash
+    ibmcloud ce project create --name hello-world-project
+    ```
 
-ibmcloud ce project create --name hello-world-project
+8. Next we need a way for Code Engine to access the containers in your registry namespace. To do thi, you need to create a secret, which you will then use in the next step to acces the IBM Container Registry. See [the docs](https://cloud.ibm.com/docs/codeengine?topic=codeengine-add-registry) for more details. The following command will create a secret called `my-cli-api-key` and save it in a file called `key_file`.
 
-Create a secret, which we will use in the next step to acces the IBM Container Registry. See [the docs](https://cloud.ibm.com/docs/codeengine?topic=codeengine-add-registry) for more details. The actual secret will be saved in a file called "key_file".
+    ```bash
+    ibmcloud iam api-key-create cliapikey -d "my-cli-api-key" --file key_file
+    ```
 
-ibmcloud iam api-key-create cliapikey -d "My CLI APIkey" --file key_file
+9. Now you'll link the registry (named "myregistry") to your Code Engine project. Make sure to replace "API_KEY" with the actual key that you received during the previous step (it's called `apikey`in the`key_file`)
+    ```bash
+    ibmcloud ce registry create --name myregistry --server icr.io --username iamapikey --password API_KEY
+    ```
 
-Now we'll create the registry (named "myregistry") using the IBM Container Registry service. Make sure to replace "API_KEY" with the actual key that you received during the previous step.
+At this point you are done and have prepared everything you need for your first deployment to Code Engine.
 
-ibmcloud ce registry create --name myregistry --server icr.io --username iamapikey --password API_KEY
+You can now chose whether to deploy your application from source code (meaning you don't have your application containerized) or whether to deploy a container that you have already created outside of Code Engine.
 
 ## Deploying an Application from its Source Code
 
@@ -62,7 +69,7 @@ If you already have a containerized application, you can deploy the container di
 
 ## Cleaning Up the Pre-Requisits
 
-Once you're done, you might want to clean up and remove the namespace that you created. Here are the commands:
+Once you're done, you might want to clean up and remove everything you created. Here are the commands:
 
 ```bash
 ibmcloud cr region-set global
@@ -70,4 +77,8 @@ ibmcloud cr region-set global
 
 ```bash
 ibmcloud cr namespace-rm <mynamespace>
+```
+
+```bash
+ibmcloud ce project delete --name hello-world-project
 ```
