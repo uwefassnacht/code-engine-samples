@@ -80,5 +80,5 @@ ibmcloud cr namespace-rm <mynamespace>
 ```
 
 ```bash
-ibmcloud ce project delete --name hello-world-project
+ibmcloud ce project delete --name hello-world-project --hard
 ```

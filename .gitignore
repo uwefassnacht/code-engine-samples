@@ -1,0 +1,4 @@
+deploy-app-from-source.sh
+deploy-app-from-container.sh
+prepare-for-deployment.sh
+cleanup.sh
