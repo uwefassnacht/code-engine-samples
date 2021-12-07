@@ -1,0 +1,14 @@
+{
+	"id": "ApiKey-475adbab-8f6d-4f59-a4d2-ccd084082a1e",
+	"crn": "crn:v1:bluemix:public:iam-identity::a/e97a8c01ac694e308ef3ad77958e7d50F-1608115T::apikey:ApiKey-475adbab-8f6d-4f59-a4d2-ccd084082a1e",
+	"iam_id": "IBMid-270002G3SS",
+	"account_id": "e97a8c01ac694e308ef3ad77958e7d50",
+	"name": "cliapikey",
+	"description": "my-cli-api-key",
+	"apikey": "tn0479zqSnR3Vf2d4vtwE8zjiw1G63x0yWiA4IlpgG4t",
+	"locked": false,
+	"entity_tag": "1-1d1931cb560337c145dce57f846447b8",
+	"created_at": "2021-12-07T15:55+0000",
+	"created_by": "IBMid-270002G3SS",
+	"modified_at": "2021-12-07T15:55+0000"
+}

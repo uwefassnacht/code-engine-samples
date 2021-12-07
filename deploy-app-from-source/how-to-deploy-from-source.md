@@ -21,7 +21,7 @@ ibmcloud ce buildrun submit --build helloworld-build
 At this point you have packaged the source code into a container image and stored it in the IBM Cloud Container Registry. 
 
 ```bash
-ibmcloud ce application create --name hello-world --image --image icr.io/<mynamespace>/codeengine-helloworld --registry-secret myregistry
+ibmcloud ce application create --name hello-world --image icr.io/<mynamespace>/codeengine-helloworld --registry-secret myregistry
 ```
 
 TODO: Add instructions how to test your app via it's URL or CURL.
