@@ -24,6 +24,13 @@ At this point you have packaged the source code into a container image and store
 ibmcloud ce application create --name hello-world --image icr.io/<mynamespace>/codeengine-helloworld --registry-secret myregistry
 ```
 
-TODO: Add instructions how to test your app via it's URL or CURL.
+The last output line from the command above will give you the https link to your running app.
+
+You can now call your application via that link or test it via curl:
+
+```sh
+curl <https link from the application create command>
+```
 
 And you're done! Congratulations, your source-code has been containerized, stored in IBM's container registry and succesfully deployed to IBM Cloud Engine.
+
