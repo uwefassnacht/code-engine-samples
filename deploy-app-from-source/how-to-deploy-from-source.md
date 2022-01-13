@@ -29,7 +29,7 @@ The last output line from the command above will give you the https link to your
 You can now call your application via that link or test it via curl:
 
 ```sh
-curl <https link from the application create command>
+curl <https-link-from-the-application-create-command>
 ```
 
 And you're done! Congratulations, your source-code has been containerized, stored in IBM's container registry and succesfully deployed to IBM Cloud Engine.
