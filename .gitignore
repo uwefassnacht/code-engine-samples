@@ -3,3 +3,4 @@ deploy-app-from-container.sh
 prepare-for-deployment.sh
 cleanup.sh
 key_file
+.DS_Store
